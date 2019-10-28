@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StyledLayerDescriptor xmlns="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/StyledLayerDescriptor.xsd" xmlns:se="http://www.opengis.net/se">
+    <se:Name>struct_point</se:Name>
+    <NamedLayer>
+        <se:Name>struct_point</se:Name>
+        <UserStyle>
+            <se:Name>Structure-Point</se:Name>
+            <se:FeatureTypeStyle>
+                <se:Rule>
+                    <se:Name>Fire-Department</se:Name>
+                    <ogc:Filter>
+                        <ogc:PropertyIsEqualTo>
+                            <ogc:Function name="parseInt">
+                                <ogc:PropertyName>fcode</ogc:PropertyName>
+                            </ogc:Function>
+                            <ogc:Literal>74026</ogc:Literal>
+                        </ogc:PropertyIsEqualTo>
+                    </ogc:Filter>
+                    <se:PointSymbolizer>
+                        <se:Graphic>
+                            <se:ExternalGraphic>
+                                <se:OnlineResource
+                                    xlink:type="simple"
+                                    xlink:href="http://www.redfishresearch.com/sld/images/svg/fire.svg"/>
+                                <se:Format>image/svg+xml</se:Format>
+                            </se:ExternalGraphic>
+                            <se:Size>10</se:Size>
+                        </se:Graphic>
+                    </se:PointSymbolizer>
+                </se:Rule>
+                <se:Rule>
+                    <se:Name>Police</se:Name>
+                    <ogc:Filter>
+                        <ogc:PropertyIsEqualTo>
+                            <ogc:Function name="parseInt">
+                                <ogc:PropertyName>fcode</ogc:PropertyName>
+                            </ogc:Function>
+                            <ogc:Literal>74034</ogc:Literal>
+                        </ogc:PropertyIsEqualTo>
+                    </ogc:Filter>
+                    <se:PointSymbolizer>
+                        <se:Graphic>
+                            <se:ExternalGraphic>
+                                <se:OnlineResource
+                                    xlink:type="simple"
+                                    xlink:href="http://www.redfishresearch.com/sld/images/svg/police.svg"/>
+                                <se:Format>image/svg+xml</se:Format>
+                            </se:ExternalGraphic>
+                            <se:Size>10</se:Size>
+                        </se:Graphic>
+                    </se:PointSymbolizer>
+                </se:Rule>
+                <se:Rule>
+                    <se:Name>Hospital</se:Name>
+                    <ogc:Filter>
+                        <ogc:PropertyIsEqualTo>
+                            <ogc:Function name="parseInt">
+                                <ogc:PropertyName>ftype</ogc:PropertyName>
+                            </ogc:Function>
+                            <ogc:Literal>800</ogc:Literal>
+                        </ogc:PropertyIsEqualTo>
+                    </ogc:Filter>
+                    <se:PointSymbolizer>
+                        <se:Graphic>
+                            <se:ExternalGraphic>
+                                <se:OnlineResource
+                                    xlink:type="simple"
+                                    xlink:href="http://www.redfishresearch.com/sld/images/svg/hospital.svg"/>
+                                <se:Format>image/svg+xml</se:Format>
+                            </se:ExternalGraphic>
+                            <se:Size>10</se:Size>
+                        </se:Graphic>
+                    </se:PointSymbolizer>
+                </se:Rule>
+                <se:Rule>
+                    <se:Name>School</se:Name>
+                    <ogc:Filter>
+                        <ogc:PropertyIsEqualTo>
+                            <ogc:Function name="parseInt">
+                                <ogc:PropertyName>ftype</ogc:PropertyName>
+                            </ogc:Function>
+                            <ogc:Literal>730</ogc:Literal>
+                        </ogc:PropertyIsEqualTo>
+                    </ogc:Filter>
+                    <se:PointSymbolizer>
+                        <se:Graphic>
+                            <se:ExternalGraphic>
+                                <se:OnlineResource
+                                    xlink:type="simple"
+                                    xlink:href="http://www.redfishresearch.com/sld/images/svg/school.svg"/>
+                                <se:Format>image/svg+xml</se:Format>
+                            </se:ExternalGraphic>
+                            <se:Size>12</se:Size>
+                        </se:Graphic>
+                    </se:PointSymbolizer>
+                </se:Rule>
+                <se:Rule>
+                    <se:Name>Post-Office</se:Name>
+                    <ogc:Filter>
+                        <ogc:PropertyIsEqualTo>
+                            <ogc:Function name="parseInt">
+                                <ogc:PropertyName>ftype</ogc:PropertyName>
+                            </ogc:Function>
+                            <ogc:Literal>780</ogc:Literal>
+                        </ogc:PropertyIsEqualTo>
+                    </ogc:Filter>
+                    <se:PointSymbolizer>
+                        <se:Graphic>
+                            <se:ExternalGraphic>
+                                <se:OnlineResource
+                                    xlink:type="simple"
+                                    xlink:href="http://www.redfishresearch.com/sld/images/svg/postal.svg"/>
+                                <se:Format>image/svg+xml</se:Format>
+                            </se:ExternalGraphic>
+                            <se:Size>10</se:Size>
+                        </se:Graphic>
+                    </se:PointSymbolizer>
+                </se:Rule>
+                <se:Rule>
+                    <se:Name>Cemetery</se:Name>
+                    <ogc:Filter>
+                        <ogc:PropertyIsEqualTo>
+                            <ogc:Function name="parseInt">
+                                <ogc:PropertyName>fcode</ogc:PropertyName>
+                            </ogc:Function>
+                            <ogc:Literal>82010</ogc:Literal>
+                        </ogc:PropertyIsEqualTo>
+                    </ogc:Filter>
+                    <se:PointSymbolizer>
+                        <se:Graphic>
+                            <se:ExternalGraphic>
+                                <se:OnlineResource
+                                    xlink:type="simple"
+                                    xlink:href="http://www.redfishresearch.com/sld/images/svg/stream_gage.svg"/>
+                                <se:Format>image/svg+xml</se:Format>
+                            </se:ExternalGraphic>
+                            <se:Size>8</se:Size>
+                        </se:Graphic>
+                    </se:PointSymbolizer>
+                    <se:TextSymbolizer>
+                        <se:Label>
+                            <ogc:PropertyName>name</ogc:PropertyName>
+                        </se:Label>
+                        <se:Font>
+                            <se:SvgParameter name="font-family">Arial</se:SvgParameter>
+                            <se:SvgParameter name="font-size">10</se:SvgParameter>
+                            <se:SvgParameter name="font-style">normal</se:SvgParameter>
+                            <se:SvgParameter name="font-weight">normal</se:SvgParameter>
+                        </se:Font>
+                        <se:LabelPlacement>
+                            <se:PointPlacement>
+                                <se:AnchorPoint>
+                                    <se:AnchorPointX>0.0</se:AnchorPointX>
+                                    <se:AnchorPointY>0.0</se:AnchorPointY>
+                                </se:AnchorPoint>
+                                <se:Displacement>
+                                    <se:DisplacementX>0</se:DisplacementX>
+                                    <se:DisplacementY>5</se:DisplacementY>
+                                </se:Displacement>
+                            </se:PointPlacement>
+                        </se:LabelPlacement>
+                        <se:Halo>
+                            <se:Radius>1</se:Radius>
+                            <se:Fill>
+                                <se:SvgParameter name="fill">#FFFFFF</se:SvgParameter>
+                            </se:Fill>
+                        </se:Halo>
+                        <se:Fill>
+                            <se:SvgParameter name="fill">#000000</se:SvgParameter>
+                        </se:Fill>
+                        <se:VendorOption name="autoWrap">50</se:VendorOption>
+                    </se:TextSymbolizer>
+                </se:Rule>
+            </se:FeatureTypeStyle>
+        </UserStyle>
+    </NamedLayer>
+</StyledLayerDescriptor>

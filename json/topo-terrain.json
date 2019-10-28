@@ -1,0 +1,2287 @@
+{
+    "version": 8,
+    "name": "Topographic",
+    "sources": {
+        "The-National-Map": {
+            "type": "vector",
+            "url": "http://localhost:8080/RedfishTileService2019/webresources/redfishtilejson"
+        },
+        "shaded-relief": {
+            "type": "raster",
+            "scheme": "tms",
+            "tileSize": 256,
+            "url": "http://localhost:8080/RedfishTileService2019/webresources/shadedrelieftilejson"
+        }
+    },
+    "glyphs": "http://localhost:8080/RedfishTileService2019/fonts/pbf/{fontstack}/{range}.pbf",
+    "sprite": "http://localhost:8080/RedfishTileService2019/sprites/topo_sprite",
+    "layers": [
+        {
+            "id": "background",
+            "type": "background",
+            "minzoom": 11,
+            "maxzoom": 17,
+            "paint": {
+                "background-color": "#ffffff"
+            }
+        },
+        {
+            "id": "Shaded-Relief",
+            "source": "shaded-relief",
+            "type": "raster"
+        },
+        {
+            "id": "Swamp-Marsh-Submerged",
+            "source-layer": "Hydrography - Waterbody",
+            "source": "The-National-Map",
+            "type": "fill",
+            "filter": [
+                "in",
+                "fcode",
+                46600,
+                46601,
+                46602
+            ],
+            "paint": {
+                "fill-opacity": 0.5,
+                "fill-outline-color": "#4EB4C7",
+                "fill-pattern": "marsh-20"
+            }
+        },
+        {
+            "id": "Woodland",
+            "source": "The-National-Map",
+            "source-layer": "Woodland",
+            "type": "fill",
+            "paint": {
+                "fill-opacity": 0.2,
+                "fill-color": "#98E633"
+            }
+        },
+        {
+            "id": "Index-Contours",
+            "source": "The-National-Map",
+            "source-layer": "Terrain-Contours",
+            "type": "line",
+            "filter": [
+                "==",
+                "fcode",
+                10102
+            ],
+            "minzoom": 12,
+            "layout": {
+                "visibility": "none",
+                "line-cap": "square",
+                "line-join": "bevel"
+            },
+            "paint": {
+                "line-opacity": 1.0,
+                "line-color": "#A67342",
+                "line-width": {
+                    "base": 1.25,
+                    "stops": [
+                        [
+                            12,
+                            0.5
+                        ],
+                        [
+                            17,
+                            1.25
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "Index-Contour-Labels",
+            "source": "The-National-Map",
+            "source-layer": "Terrain-Contours",
+            "type": "symbol",
+            "filter": [
+                "==",
+                "fcode",
+                10102
+            ],
+            "minzoom": 13,
+            "layout": {
+                "visibility": "none",
+                "text-font": [
+                    "Droid Serif"
+                ],
+                "symbol-placement": "line",
+                "text-padding": 1,
+                "text-field": "{contour_elev}",
+                "text-letter-spacing": 0.01,
+                "text-size": 10
+            },
+            "paint": {
+                "text-color": "#E0945E",
+                "text-halo-color": "#ffffff",
+                "text-halo-width": 3
+            }
+        },
+        {
+            "id": "Regular-Contours",
+            "source-layer": "Terrain-Contours",
+            "source": "The-National-Map",
+            "type": "line",
+            "filter": [
+                "==",
+                "fcode",
+                10101
+            ],
+            "minzoom": 13,
+            "layout": {
+                "visibility": "none",
+                "line-cap": "square",
+                "line-join": "bevel"
+            },
+            "paint": {
+                "line-opacity": 1.0,
+                "line-color": "#B38659",
+                "line-width": {
+                    "base": 1.25,
+                    "stops": [
+                        [
+                            12,
+                            0.5
+                        ],
+                        [
+                            17,
+                            1.25
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "Index-Depression",
+            "source-layer": "Terrain-Contours",
+            "source": "The-National-Map",
+            "type": "line",
+            "filter": [
+                "==",
+                "fcode",
+                10105
+            ],
+            "minzoom": 12,
+            "layout": {
+                "visibility": "none",
+                "line-cap": "square",
+                "line-join": "bevel"
+            },
+            "paint": {
+                "line-opacity": 1.0,
+                "line-color": "#A67342",
+                "line-width": {
+                    "base": 1.25,
+                    "stops": [
+                        [
+                            12,
+                            0.5
+                        ],
+                        [
+                            17,
+                            1.25
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "Index-Depression-Hatching",
+            "source-layer": "Terrain-Contours",
+            "source": "The-National-Map",
+            "type": "line",
+            "filter": [
+                "==",
+                "fcode",
+                10105
+            ],
+            "layout": {
+                "visibility": "none"
+            },
+            "minzoom": 12,
+            "paint": {
+                "line-color": "#A67342",
+                "line-dasharray": [
+                    0.1,
+                    6
+                ],
+                "line-width": 5.0,
+                "line-offset": 2.5
+            }
+        },
+        {
+            "id": "Index-Depression-Labels",
+            "source-layer": "Terrain-Contours",
+            "source": "The-National-Map",
+            "type": "symbol",
+            "filter": [
+                "==",
+                "fcode",
+                10102
+            ],
+            "minzoom": 13,
+            "layout": {
+                "visibility": "none",
+                "text-font": [
+                    "Droid Serif"
+                ],
+                "symbol-placement": "line",
+                "text-padding": 1,
+                "text-field": "{contour_elev}",
+                "text-letter-spacing": 0.01,
+                "text-size": 10
+            },
+            "paint": {
+                "text-color": "#E0945E",
+                "text-halo-color": "#ffffff",
+                "text-halo-width": 3
+            }
+        },
+        {
+            "id": "Normal-Depression",
+            "source-layer": "Terrain-Contours",
+            "source": "The-National-Map",
+            "type": "line",
+            "filter": [
+                "==",
+                "fcode",
+                10104
+            ],
+            "minzoom": 13,
+            "layout": {
+                "visibility": "none",
+                "line-cap": "square",
+                "line-join": "bevel"
+            },
+            "paint": {
+                "line-opacity": 1.0,
+                "line-color": "#B38659",
+                "line-width": {
+                    "base": 1.25,
+                    "stops": [
+                        [
+                            12,
+                            0.5
+                        ],
+                        [
+                            17,
+                            1.25
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "Stream-Perennial",
+            "source-layer": "Hydrography - Flowline",
+            "source": "The-National-Map",
+            "type": "line",
+            "filter": [
+                "in",
+                "fcode",
+                46000,
+                46006
+            ],
+            "layout": {
+                "line-cap": "square",
+                "line-join": "bevel"
+            },
+            "paint": {
+                "line-color": "#a0c8f0",
+                "line-width": {
+                    "base": 1.25,
+                    "stops": [
+                        [
+                            11,
+                            0.5
+                        ],
+                        [
+                            20,
+                            6
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "Stream-Perennial-Labels",
+            "source-layer": "Hydrography - Flowline",
+            "source": "The-National-Map",
+            "type": "symbol",
+            "filter": [
+                "in",
+                "fcode",
+                46000,
+                46006
+            ],
+            "layout": {
+                "text-font": [
+                    "Droid Serif"
+                ],
+                "symbol-placement": "line",
+                "text-padding": 1,
+                "text-field": "{name}",
+                "text-letter-spacing": 0.01,
+                "text-max-angle": 5,
+                "text-size": 10,
+                "text-offset": [
+                    0,
+                    -1
+                ]
+            },
+            "paint": {
+                "text-color": "#4EB4C7",
+                "text-halo-color": "#ffffff",
+                "text-halo-width": 3
+            }
+        },
+        {
+            "id": "Artificial-Pathway",
+            "source-layer": "Hydrography - Flowline",
+            "source": "The-National-Map",
+            "type": "line",
+            "filter": [
+                "==",
+                "fcode",
+                55800
+            ],
+            "layout": {
+                "line-cap": "square",
+                "line-join": "bevel"
+            },
+            "paint": {
+                "line-opacity": 0.0,
+                "line-color": "#4EB4C7"
+            }
+        },
+        {
+            "id": "Stream-Intermittent",
+            "source-layer": "Hydrography - Flowline",
+            "source": "The-National-Map",
+            "type": "line",
+            "filter": [
+                "in",
+                "fcode",
+                46003,
+                46007
+            ],
+            "layout": {
+                "line-cap": "butt",
+                "line-join": "bevel"
+            },
+            "paint": {
+                "line-opacity": 1.0,
+                "line-color": "#4EB4C7",
+                "line-width": {
+                    "base": 1.25,
+                    "stops": [
+                        [
+                            11,
+                            0.5
+                        ],
+                        [
+                            20,
+                            6
+                        ]
+                    ]
+                },
+                "line-dasharray": [
+                    10,
+                    3,
+                    3,
+                    3,
+                    3,
+                    3,
+                    3,
+                    3
+                ]
+            }
+        },
+        {
+            "id": "Stream-Intermittent-Labels",
+            "source-layer": "Hydrography - Flowline",
+            "source": "The-National-Map",
+            "type": "symbol",
+            "filter": [
+                "all",
+                [
+                    "in",
+                    "fcode",
+                    46003,
+                    55800
+                ],
+                [
+                    "has",
+                    "name"
+                ]
+            ],
+            "layout": {
+                "text-font": [
+                    "Droid Serif"
+                ],
+                "symbol-placement": "line",
+                "symbol-spacing": 200,
+                "text-padding": 1,
+                "text-field": "{name}",
+                "text-letter-spacing": 0.01,
+                "text-max-angle": 5,
+                "text-size": 10,
+                "text-offset": [
+                    0,
+                    1
+                ]
+            },
+            "paint": {
+                "text-color": "#4EB4C7",
+                "text-halo-color": "#ffffff",
+                "text-halo-width": 3
+            }
+        },
+        {
+            "id": "Tailings-Pond",
+            "source-layer": "Hydrography - Waterbody",
+            "source": "The-National-Map",
+            "type": "fill",
+            "filter": [
+                "in",
+                "fcode",
+                43604,
+                43605
+            ],
+            "paint": {
+                "fill-opacity": 1.0,
+                "fill-color": "#BEE8FF",
+                "fill-pattern": "dots-20"
+            }
+        },
+        {
+            "id": "Artificial-Pathway-Labels",
+            "source-layer": "Hydrography - Flowline",
+            "source": "The-National-Map",
+            "type": "symbol",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "fcode",
+                    55800
+                ],
+                [
+                    "has",
+                    "name"
+                ]
+            ],
+            "layout": {
+                "text-font": [
+                    "Droid Serif Italic"
+                ],
+                "symbol-placement": "line",
+                "text-padding": 1,
+                "text-field": "{name}",
+                "text-letter-spacing": 0.0,
+                "text-max-angle": 5,
+                "text-size": 12,
+                "text-offset": [
+                    0,
+                    -3
+                ]
+            },
+            "paint": {
+                "text-color": "#4EB4C7",
+                "text-halo-color": "#ffffff",
+                "text-halo-width": 3
+            }
+        },
+        {
+            "id": "Lake-Pond-Perennial",
+            "source-layer": "Hydrography - Waterbody",
+            "source": "The-National-Map",
+            "type": "fill",
+            "filter": [
+                "in",
+                "fcode",
+                39000,
+                39004,
+                39009,
+                39010,
+                39011,
+                39012,
+                43600,
+                43615,
+                43617,
+                43618,
+                43619,
+                43621,
+                43625
+            ],
+            "paint": {
+                "fill-opacity": 1.0,
+                "fill-color": "#ECF8FF",
+                "fill-outline-color": "#4EB4C7"
+            }
+        },
+        {
+            "id": "Lake-Pond-Reservoir-Intermittent",
+            "source-layer": "Hydrography - Waterbody",
+            "source": "The-National-Map",
+            "type": "fill",
+            "filter": [
+                "in",
+                "fcode",
+                39001,
+                39005,
+                39006,
+                43614
+            ],
+            "paint": {
+                "fill-pattern": "reservoir-intermittent-20",
+                "fill-outline-color": "#BEE8FF"
+            }
+        },
+        {
+            "id": "Area-Perennial",
+            "source-layer": "Hydrography - Area",
+            "source": "The-National-Map",
+            "type": "fill",
+            "filter": [
+                "in",
+                "fcode",
+                31200,
+                33600,
+                33601,
+                33603,
+                44500,
+                46000,
+                46006,
+                36200
+            ],
+            "paint": {
+                "fill-opacity": 1.0,
+                "fill-color": "#ECF8FF",
+                "fill-outline-color": "#BEE8FF"
+            }
+        },
+        {
+            "id": "Area-Wash",
+            "source-layer": "Hydrography - Area",
+            "source": "The-National-Map",
+            "type": "fill",
+            "filter": [
+                "==",
+                "fcode",
+                48400
+            ],
+            "paint": {
+                "fill-pattern": "dots-20"
+            }
+        },
+        {
+            "id": "Dam-Weir",
+            "source-layer": "Hydrography - Point",
+            "source": "The-National-Map",
+            "type": "symbol",
+            "minzoom": 13,
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "fcode",
+                    34300
+                ],
+                [
+                    "has",
+                    "name"
+                ]
+            ],
+            "layout": {
+                "icon-image": "dam-weir-20",
+                "text-font": [
+                    "Droid Sans"
+                ],
+                "text-field": "{name}",
+                "text-max-width": 6,
+                "text-padding": 1,
+                "text-anchor": "bottom-left",
+                "text-offset": [
+                    1,
+                    1
+                ],
+                "text-size": 10,
+                "text-allow-overlap": true,
+                "icon-size": 0.5
+            },
+            "paint": {
+                "text-color": "#000000",
+                "text-halo-color": "#ffffff",
+                "text-halo-width": 3
+            }
+        },
+        {
+            "id": "Stream-Gage",
+            "source-layer": "Hydrography - Point",
+            "source": "The-National-Map",
+            "type": "symbol",
+            "minzoom": 13,
+            "filter": [
+                "in",
+                "fcode",
+                36700,
+                36701
+            ],
+            "layout": {
+                "icon-image": "stream-gage-20",
+                "icon-size": 0.5
+            },
+            "paint": {}
+        },
+        {
+            "id": "Gate",
+            "source-layer": "Hydrography - Point",
+            "source": "The-National-Map",
+            "type": "symbol",
+            "minzoom": 13,
+            "filter": [
+                "==",
+                "fcode",
+                36900
+            ],
+            "layout": {
+                "icon-image": "gate-20",
+                "icon-size": 0.5
+            },
+            "paint": {}
+        },
+        {
+            "id": "Lock-Chamber",
+            "source-layer": "Hydrography - Point",
+            "source": "The-National-Map",
+            "type": "symbol",
+            "minzoom": 13,
+            "filter": [
+                "==",
+                "fcode",
+                39800
+            ],
+            "layout": {
+                "icon-image": "lock-chamber-20",
+                "icon-size": 0.5
+            },
+            "paint": {}
+        },
+        {
+            "id": "Reservoir-Point",
+            "source-layer": "Hydrography - Point",
+            "source": "The-National-Map",
+            "type": "symbol",
+            "minzoom": 13,
+            "filter": [
+                "all",
+                [
+                    ">=",
+                    "fcode",
+                    43600
+                ],
+                [
+                    "<=",
+                    "fcode",
+                    43626
+                ]
+            ],
+            "layout": {
+                "icon-image": "reservoir-20",
+                "icon-size": 0.5
+            },
+            "paint": {}
+        },
+        {
+            "id": "Rock",
+            "source-layer": "Hydrography - Point",
+            "source": "The-National-Map",
+            "type": "symbol",
+            "minzoom": 13,
+            "filter": [
+                "in",
+                "fcode",
+                44100,
+                44101,
+                44102
+            ],
+            "layout": {
+                "icon-image": "rock-20"
+            },
+            "paint": {}
+        },
+        {
+            "id": "Spring-Seep",
+            "source-layer": "Hydrography - Point",
+            "source": "The-National-Map",
+            "type": "symbol",
+            "minzoom": 13,
+            "filter": [
+                "==",
+                "fcode",
+                45800
+            ],
+            "layout": {
+                "icon-image": "spring-seep-20",
+                "icon-size": 0.5
+            },
+            "paint": {}
+        },
+        {
+            "id": "Well",
+            "source-layer": "Hydrography - Point",
+            "source": "The-National-Map",
+            "type": "symbol",
+            "minzoom": 13,
+            "filter": [
+                "==",
+                "fcode",
+                48800
+            ],
+            "layout": {
+                "icon-image": "well-20",
+                "icon-size": 0.5
+            },
+            "paint": {}
+        },
+        {
+            "id": "Railway",
+            "source-layer": "Rail Feature",
+            "source": "The-National-Map",
+            "type": "line",
+            "filter": [
+                "in",
+                "fcode",
+                20200,
+                20201
+            ],
+            "paint": {
+                "line-color": "#444",
+                "line-width": {
+                    "base": 1.25,
+                    "stops": [
+                        [
+                            12,
+                            0.5
+                        ],
+                        [
+                            17,
+                            1.25
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "Military-Baseline",
+            "source-layer": "Government Unit - Reserve",
+            "source": "The-National-Map",
+            "type": "line",
+            "filter": [
+                "==",
+                "ftype",
+                673
+            ],
+            "layout": {
+                "line-cap": "butt",
+                "line-join": "bevel"
+            },
+            "paint": {
+                "line-opacity": 1.0,
+                "line-color": "#cccccc",
+                "line-width": {
+                    "base": 3,
+                    "stops": [
+                        [
+                            11,
+                            4
+                        ],
+                        [
+                            13,
+                            8
+                        ],
+                        [
+                            18,
+                            12
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "Military",
+            "source-layer": "Government Unit - Reserve",
+            "source": "The-National-Map",
+            "type": "line",
+            "filter": [
+                "==",
+                "ftype",
+                673
+            ],
+            "layout": {
+                "line-cap": "butt",
+                "line-join": "bevel"
+            },
+            "paint": {
+                "line-opacity": 1.0,
+                "line-color": "#000000",
+                "line-dasharray": [
+                    25,
+                    3,
+                    5,
+                    3
+                ],
+                "line-width": {
+                    "base": 1.5,
+                    "stops": [
+                        [
+                            11,
+                            0.5
+                        ],
+                        [
+                            20,
+                            6
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "Park-Forest-Grassland-Baseline",
+            "source-layer": "Government Unit - Reserve",
+            "source": "The-National-Map",
+            "type": "line",
+            "filter": [
+                "in",
+                "ftype",
+                671,
+                672,
+                674
+            ],
+            "layout": {
+                "line-cap": "butt",
+                "line-join": "bevel"
+            },
+            "paint": {
+                "line-color": "rgba(236,187,187,0.4)",
+                "line-width": {
+                    "base": 3,
+                    "stops": [
+                        [
+                            11,
+                            4
+                        ],
+                        [
+                            13,
+                            8
+                        ],
+                        [
+                            18,
+                            12
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "Park-Forest-Grassland",
+            "source-layer": "Government Unit - Reserve",
+            "source": "The-National-Map",
+            "type": "line",
+            "filter": [
+                "in",
+                "ftype",
+                671,
+                672,
+                674
+            ],
+            "layout": {
+                "line-cap": "butt",
+                "line-join": "bevel"
+            },
+            "paint": {
+                "line-opacity": 1.0,
+                "line-color": "#000000",
+                "line-dasharray": [
+                    25,
+                    3,
+                    5,
+                    3
+                ],
+                "line-width": {
+                    "base": 1.5,
+                    "stops": [
+                        [
+                            11,
+                            0.5
+                        ],
+                        [
+                            20,
+                            6
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "Park-Forest-Grassland-Labels",
+            "source-layer": "Government Unit - Reserve - Centroid",
+            "source": "The-National-Map",
+            "type": "symbol",
+            "minzoom": 12,
+            "layout": {
+                "text-font": [
+                    "Droid Serif"
+                ],
+                "text-field": "{name}",
+                "text-max-width": 6,
+                "text-padding": 1,
+                "text-anchor": "center",
+                "text-size": 14
+            },
+            "paint": {
+                "text-color": "#000000",
+                "text-halo-color": "rgba(236,187,187,0.4)",
+                "text-halo-width": 2
+            }
+        },
+        {
+            "id": "Railway-Hatching",
+            "source-layer": "Rail Feature",
+            "source": "The-National-Map",
+            "type": "line",
+            "filter": [
+                "in",
+                "fcode",
+                20200,
+                20201
+            ],
+            "paint": {
+                "line-color": "#444",
+                "line-dasharray": [
+                    0.1,
+                    6
+                ],
+                "line-width": {
+                    "base": 1.8,
+                    "stops": [
+                        [
+                            12,
+                            3
+                        ],
+                        [
+                            15,
+                            5
+                        ],
+                        [
+                            20,
+                            8
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "Section",
+            "source-layer": "PLSS-First Division",
+            "source": "The-National-Map",
+            "type": "line",
+            "filter": [
+                "==",
+                "first_div_text",
+                "Section"
+            ],
+            "layout": {
+                "visibility": "none",
+                "line-cap": "square",
+                "line-join": "bevel"
+            },
+            "paint": {
+                "line-opacity": 1.0,
+                "line-color": "#CC2030",
+                "line-width": {
+                    "base": 1.25,
+                    "stops": [
+                        [
+                            12,
+                            0.5
+                        ],
+                        [
+                            17,
+                            1.25
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "Civil-Name",
+            "source-layer": "Derived Names",
+            "source": "The-National-Map",
+            "type": "symbol",
+            "minzoom": 12,
+            "filter": [
+                "==",
+                "fcode",
+                61403
+            ],
+            "layout": {
+                "text-font": [
+                    "Droid Serif Bold"
+                ],
+                "text-field": "{gaz_name}",
+                "text-max-width": 9,
+                "text-padding": 1,
+                "text-anchor": "center",
+                "text-size": 16
+            },
+            "paint": {
+                "text-color": "#000000",
+                "text-halo-color": "#ffffff",
+                "text-halo-width": 3
+            }
+        },
+        {
+            "id": "Locale-Name",
+            "source-layer": "Derived Names",
+            "source": "The-National-Map",
+            "type": "symbol",
+            "minzoom": 12,
+            "filter": [
+                "==",
+                "gaz_feature",
+                "Locale"
+            ],
+            "layout": {
+                "text-font": [
+                    "Droid Sans Bold"
+                ],
+                "text-field": "{gaz_name}",
+                "text-max-width": 6,
+                "text-padding": 2,
+                "text-offset": [
+                    0,
+                    0.6
+                ],
+                "text-anchor": "center",
+                "text-size": 10
+            }
+        },
+        {
+            "id": "Waterbody-Labels",
+            "source-layer": "Hydrography - Waterbody - Centroid",
+            "source": "The-National-Map",
+            "type": "symbol",
+            "minzoom": 13,
+            "layout": {
+                "text-font": [
+                    "Droid Serif Italic"
+                ],
+                "text-field": "{name}",
+                "text-max-width": 6,
+                "text-padding": 1,
+                "text-anchor": "center",
+                "text-size": 12
+            },
+            "paint": {
+                "text-color": "#4EB4C7",
+                "text-halo-color": "#ffffff",
+                "text-halo-width": 2
+            }
+        },
+        {
+            "id": "Area-Dam-Weir",
+            "source-layer": "Hydrography - Area",
+            "source": "The-National-Map",
+            "type": "fill",
+            "filter": [
+                "in",
+                "fcode",
+                34300,
+                34305,
+                34306
+            ],
+            "layout": {},
+            "paint": {
+                "fill-opacity": 1.0,
+                "fill-color": "#9c9c9c",
+                "fill-outline-color": "#000000"
+            }
+        },
+        {
+            "id": "Native-American-Area-Baseline",
+            "source-layer": "Native American Area",
+            "source": "The-National-Map",
+            "type": "line",
+            "layout": {
+                "line-cap": "butt",
+                "line-join": "bevel"
+            },
+            "paint": {
+                "line-opacity": 0.4,
+                "line-color": "#FF9100",
+                "line-width": {
+                    "base": 3,
+                    "stops": [
+                        [
+                            11,
+                            4
+                        ],
+                        [
+                            13,
+                            8
+                        ],
+                        [
+                            18,
+                            12
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "Native-American-Areas",
+            "source-layer": "Native American Area",
+            "source": "The-National-Map",
+            "type": "line",
+            "layout": {
+                "line-cap": "butt",
+                "line-join": "bevel"
+            },
+            "paint": {
+                "line-opacity": 1.0,
+                "line-color": "#000000",
+                "line-dasharray": [
+                    25,
+                    3,
+                    5,
+                    3
+                ],
+                "line-width": {
+                    "base": 1.5,
+                    "stops": [
+                        [
+                            11,
+                            0.5
+                        ],
+                        [
+                            20,
+                            6
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "Native-American-Areas-Labels",
+            "source-layer": "Native American Area Centroid",
+            "source": "The-National-Map",
+            "type": "symbol",
+            "filter": [
+                "has",
+                "name"
+            ],
+            "layout": {
+                "text-font": [
+                    "Droid Serif Bold"
+                ],
+                "text-field": "{name}",
+                "text-max-width": 30,
+                "text-padding": 1,
+                "text-size": 12,
+                "text-anchor": "center"
+            },
+            "paint": {
+                "text-color": "#000000",
+                "text-halo-color": "rgba(255,145,0,0.4)",
+                "text-halo-width": 3
+            }
+        },
+        {
+            "id": "County-Baseline",
+            "source-layer": "County or Equivalent",
+            "source": "The-National-Map",
+            "type": "line",
+            "filter": [
+                "in",
+                "fcode",
+                61200,
+                61208
+            ],
+            "layout": {
+                "line-cap": "butt",
+                "line-join": "bevel"
+            },
+            "paint": {
+                "line-opacity": 1.0,
+                "line-color": "#f0e187",
+                "line-width": {
+                    "base": 3,
+                    "stops": [
+                        [
+                            11,
+                            4
+                        ],
+                        [
+                            13,
+                            8
+                        ],
+                        [
+                            18,
+                            12
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "County",
+            "source-layer": "County or Equivalent",
+            "source": "The-National-Map",
+            "type": "line",
+            "filter": [
+                "in",
+                "fcode",
+                61200,
+                61208
+            ],
+            "layout": {
+                "line-cap": "butt",
+                "line-join": "bevel"
+            },
+            "paint": {
+                "line-opacity": 1.0,
+                "line-color": "#000000",
+                "line-dasharray": [
+                    10,
+                    2,
+                    2,
+                    2
+                ],
+                "line-width": {
+                    "base": 1.5,
+                    "stops": [
+                        [
+                            11,
+                            0.5
+                        ],
+                        [
+                            20,
+                            6
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "County-Label-1",
+            "source-layer": "County or Equivalent",
+            "source": "The-National-Map",
+            "minzoom": 12,
+            "type": "symbol",
+            "layout": {
+                "text-font": [
+                    "Droid Serif"
+                ],
+                "text-field": "{name1}",
+                "text-max-width": 12,
+                "text-padding": 1,
+                "symbol-placement": "line",
+                "text-max-angle": 5,
+                "text-size": 12,
+                "text-ignore-placement": true,
+                "symbol-spacing": 400,
+                "text-offset": [
+                    0,
+                    1
+                ]
+            },
+            "paint": {
+                "text-color": "#000000",
+                "text-halo-color": "#ffffff",
+                "text-halo-width": 2
+            }
+        },
+        {
+            "id": "County-Label-2",
+            "source-layer": "County or Equivalent",
+            "source": "The-National-Map",
+            "minzoom": 12,
+            "type": "symbol",
+            "layout": {
+                "text-font": [
+                    "Droid Serif"
+                ],
+                "text-field": "{name2}",
+                "text-max-width": 12,
+                "text-padding": 1,
+                "symbol-placement": "line",
+                "text-size": 12,
+                "text-max-angle": 5,
+                "text-ignore-placement": true,
+                "symbol-spacing": 450,
+                "text-offset": [
+                    0,
+                    -1
+                ]
+            },
+            "paint": {
+                "text-color": "#000000",
+                "text-halo-color": "#ffffff",
+                "text-halo-width": 2
+            }
+        },
+        {
+            "id": "State-Baseline",
+            "source-layer": "State or Territory",
+            "source": "The-National-Map",
+            "type": "line",
+            "layout": {
+                "line-cap": "butt",
+                "line-join": "bevel"
+            },
+            "paint": {
+                "line-opacity": 1.0,
+                "line-color": "#f0e187",
+                "line-width": {
+                    "base": 3,
+                    "stops": [
+                        [
+                            11,
+                            4
+                        ],
+                        [
+                            13,
+                            8
+                        ],
+                        [
+                            18,
+                            12
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "State-or-Territory",
+            "source-layer": "State or Territory",
+            "source": "The-National-Map",
+            "type": "line",
+            "layout": {
+                "line-cap": "butt",
+                "line-join": "bevel"
+            },
+            "paint": {
+                "line-opacity": 1.0,
+                "line-color": "#000000",
+                "line-dasharray": [
+                    10,
+                    2,
+                    2,
+                    2
+                ],
+                "line-width": {
+                    "base": 1.5,
+                    "stops": [
+                        [
+                            11,
+                            0.5
+                        ],
+                        [
+                            20,
+                            6
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "State-Label-1",
+            "source-layer": "State or Territory",
+            "source": "The-National-Map",
+            "minzoom": 12,
+            "type": "symbol",
+            "filter": [
+                "has",
+                "state_name1"
+            ],
+            "layout": {
+                "text-font": [
+                    "Droid Serif"
+                ],
+                "text-field": "{state_name1}",
+                "text-max-width": 12,
+                "text-padding": 1,
+                "symbol-placement": "line",
+                "text-max-angle": 3,
+                "text-size": 12,
+                "symbol-spacing": 300,
+                "text-offset": [
+                    0,
+                    -1
+                ]
+            },
+            "paint": {
+                "text-color": "#000000",
+                "text-halo-color": "#ffffff",
+                "text-halo-width": 2
+            }
+        },
+        {
+            "id": "State-Label-2",
+            "source-layer": "State or Territory",
+            "source": "The-National-Map",
+            "minzoom": 13,
+            "type": "symbol",
+            "filter": [
+                "has",
+                "state_name2"
+            ],
+            "layout": {
+                "text-font": [
+                    "Droid Serif"
+                ],
+                "text-field": "{state_name2}",
+                "text-max-width": 12,
+                "text-padding": 1,
+                "symbol-placement": "line",
+                "text-size": 12,
+                "text-max-angle": 3,
+                "text-ignore-placement": true,
+                "symbol-spacing": 350,
+                "text-offset": [
+                    0,
+                    1
+                ]
+            },
+            "paint": {
+                "text-color": "#000000",
+                "text-halo-color": "#ffffff",
+                "text-halo-width": 2
+            }
+        },
+        {
+            "id": "International-Boundary-Baseline",
+            "source-layer": "International Boundary",
+            "source": "The-National-Map",
+            "type": "line",
+            "filter": [
+                "==",
+                "fcode",
+                61000
+            ],
+            "layout": {
+                "line-cap": "butt",
+                "line-join": "bevel"
+            },
+            "paint": {
+                "line-opacity": 1.0,
+                "line-color": "#f0e187",
+                "line-width": {
+                    "base": 3,
+                    "stops": [
+                        [
+                            11,
+                            4
+                        ],
+                        [
+                            13,
+                            8
+                        ],
+                        [
+                            18,
+                            12
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "International-Boundary",
+            "source-layer": "International Boundary",
+            "source": "The-National-Map",
+            "type": "line",
+            "filter": [
+                "==",
+                "fcode",
+                61000
+            ],
+            "layout": {
+                "line-cap": "butt",
+                "line-join": "bevel"
+            },
+            "paint": {
+                "line-opacity": 1.0,
+                "line-color": "#000000",
+                "line-dasharray": [
+                    25,
+                    3,
+                    5,
+                    3,
+                    5,
+                    3
+                ],
+                "line-width": {
+                    "base": 1.5,
+                    "stops": [
+                        [
+                            11,
+                            0.5
+                        ],
+                        [
+                            20,
+                            6
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "International-Boundary-Label",
+            "source-layer": "International Boundary",
+            "source": "The-National-Map",
+            "minzoom": 13,
+            "type": "symbol",
+            "filter": [
+                "has",
+                "country_name"
+            ],
+            "layout": {
+                "text-font": [
+                    "Droid Serif"
+                ],
+                "text-field": "{country_name}",
+                "text-max-width": 12,
+                "text-padding": 1,
+                "symbol-placement": "line",
+                "text-size": 14,
+                "text-max-angle": 3,
+                "text-ignore-placement": true,
+                "text-allow-overlap": true,
+                "symbol-spacing": 500,
+                "text-offset": [
+                    0,
+                    -1
+                ]
+            },
+            "paint": {
+                "text-color": "#000000",
+                "text-halo-color": "#ffffff",
+                "text-halo-width": 2
+            }
+        },
+        {
+            "id": "Local-Road",
+            "source-layer": "Transportation - Road(NTDNOFS)",
+            "source": "The-National-Map",
+            "type": "line",
+            "filter": [
+                "==",
+                "tnmfrc",
+                "4"
+            ],
+            "layout": {
+                "line-cap": "butt",
+                "line-join": "bevel"
+            },
+            "paint": {
+                "line-opacity": 1.0,
+                "line-color": "#9b9b9b",
+                "line-width": {
+                    "base": 1.25,
+                    "stops": [
+                        [
+                            11,
+                            0.5
+                        ],
+                        [
+                            20,
+                            6
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "Local-Road-Labels",
+            "source-layer": "Transportation - Road(NTDNOFS)",
+            "source": "The-National-Map",
+            "type": "symbol",
+            "filter": [
+                "==",
+                "tnmfrc",
+                "4"
+            ],
+            "layout": {
+                "text-font": [
+                    "Droid Sans"
+                ],
+                "symbol-placement": "line",
+                "symbol-spacing": 400,
+                "text-padding": 1,
+                "text-field": "{full_street_name}",
+                "text-letter-spacing": 0.01,
+                "text-max-angle": 10,
+                "text-size": [
+                    "interpolate",
+                    [
+                        "linear"
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    11,
+                    8,
+                    17,
+                    12
+                ],
+                "text-offset": [
+                    0,
+                    1
+                ]
+            },
+            "paint": {
+                "text-color": "#000000",
+                "text-halo-color": "#ffffff",
+                "text-halo-width": 2
+            }
+        },
+        {
+            "id": "Local-Road-USFS",
+            "source-layer": "Transportation - Road(USFS)",
+            "source": "The-National-Map",
+            "type": "line",
+            "filter": [
+                "==",
+                "tnmfrc",
+                "4"
+            ],
+            "layout": {
+                "line-cap": "butt",
+                "line-join": "bevel"
+            },
+            "paint": {
+                "line-opacity": 1.0,
+                "line-color": "#9b9b9b",
+                "line-width": {
+                    "base": 1.25,
+                    "stops": [
+                        [
+                            11,
+                            0.5
+                        ],
+                        [
+                            20,
+                            6
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "Local-Road-USFS-Labels",
+            "source-layer": "Transportation - Road(USFS)",
+            "source": "The-National-Map",
+            "type": "symbol",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "tnmfrc",
+                    "4"
+                ],
+                [
+                    "has",
+                    "federal_lands_route"
+                ]
+            ],
+            "layout": {
+                "text-font": [
+                    "Droid Sans"
+                ],
+                "symbol-placement": "line",
+                "symbol-spacing": 300,
+                "text-padding": 1,
+                "text-field": "{federal_lands_route}",
+                "text-letter-spacing": 0.01,
+                "text-max-angle": 5,
+                "text-size": [
+                    "interpolate",
+                    [
+                        "linear"
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    11,
+                    8,
+                    17,
+                    12
+                ],
+                "text-offset": [
+                    0,
+                    1
+                ]
+            },
+            "paint": {
+                "text-color": "#000000",
+                "text-halo-color": "#ffffff",
+                "text-halo-width": 2
+            }
+        },
+        {
+            "id": "Trail",
+            "source-layer": "Transportation - Trail",
+            "source": "The-National-Map",
+            "type": "line",
+            "layout": {
+                "line-cap": "butt",
+                "line-join": "bevel"
+            },
+            "paint": {
+                "line-opacity": 1.0,
+                "line-color": "#9b9b9b",
+                "line-dasharray": [
+                    5,
+                    3
+                ],
+                "line-width": {
+                    "base": 1.25,
+                    "stops": [
+                        [
+                            11,
+                            0.5
+                        ],
+                        [
+                            20,
+                            6
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "Trail-Labels",
+            "source-layer": "Transportation - Trail",
+            "source": "The-National-Map",
+            "type": "symbol",
+            "layout": {
+                "text-font": [
+                    "Droid Sans"
+                ],
+                "symbol-placement": "line",
+                "text-padding": 1,
+                "text-field": "{name}",
+                "text-max-angle": 30,
+                "text-size": [
+                    "interpolate",
+                    [
+                        "linear"
+                    ],
+                    [
+                        "zoom"
+                    ],
+                    10,
+                    8,
+                    17,
+                    10
+                ],
+                "text-letter-spacing": 0.02,
+                "text-offset": [
+                    0,
+                    1
+                ]
+            },
+            "paint": {
+                "text-color": "#000000",
+                "text-halo-color": "#ffffff",
+                "text-halo-width": 2
+            }
+        },
+        {
+            "id": "US-Highway",
+            "source-layer": "Transportation - Road(NTDNOFS)",
+            "source": "The-National-Map",
+            "type": "line",
+            "filter": [
+                "==",
+                "tnmfrc",
+                "2"
+            ],
+            "layout": {
+                "line-cap": "butt",
+                "line-join": "bevel"
+            },
+            "paint": {
+                "line-opacity": 1.0,
+                "line-color": "#C96767",
+                "line-width": {
+                    "base": 1.5,
+                    "stops": [
+                        [
+                            11,
+                            0.5
+                        ],
+                        [
+                            20,
+                            6
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "State-Highway",
+            "source-layer": "Transportation - Road(NTDNOFS)",
+            "source": "The-National-Map",
+            "type": "line",
+            "filter": [
+                "==",
+                "tnmfrc",
+                "3"
+            ],
+            "layout": {
+                "line-cap": "butt",
+                "line-join": "bevel"
+            },
+            "paint": {
+                "line-opacity": 1.0,
+                "line-color": "#6E6F6E",
+                "line-width": {
+                    "base": 1.5,
+                    "stops": [
+                        [
+                            11,
+                            0.5
+                        ],
+                        [
+                            20,
+                            6
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "Interstate-Ramp",
+            "source-layer": "Transportation - Road(NTDNOFS)",
+            "source": "The-National-Map",
+            "type": "line",
+            "filter": [
+                "==",
+                "tnmfrc",
+                "5"
+            ],
+            "layout": {
+                "line-cap": "butt",
+                "line-join": "bevel"
+            },
+            "paint": {
+                "line-opacity": 1.0,
+                "line-color": "#AF4B4C",
+                "line-width": {
+                    "base": 2.5,
+                    "stops": [
+                        [
+                            11,
+                            2
+                        ],
+                        [
+                            13,
+                            4
+                        ],
+                        [
+                            17,
+                            8
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "Interstate",
+            "source-layer": "Transportation - Road(NTDNOFS)",
+            "source": "The-National-Map",
+            "type": "line",
+            "filter": [
+                "==",
+                "tnmfrc",
+                "1"
+            ],
+            "layout": {
+                "line-cap": "butt",
+                "line-join": "bevel"
+            },
+            "paint": {
+                "line-opacity": 1.0,
+                "line-color": "#AF4B4C",
+                "line-width": {
+                    "base": 2.5,
+                    "stops": [
+                        [
+                            11,
+                            2
+                        ],
+                        [
+                            13,
+                            4
+                        ],
+                        [
+                            17,
+                            8
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "State-Highway-Shields",
+            "source-layer": "Transportation - Road(NTDNOFS)",
+            "source": "The-National-Map",
+            "minzoom": 13,
+            "type": "symbol",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "tnmfrc",
+                    "3"
+                ],
+                [
+                    "has",
+                    "state_route"
+                ]
+            ],
+            "layout": {
+                "icon-image": "state-highway-20",
+                "icon-text-fit": "width",
+                "icon-text-fit-padding": [
+                    0,
+                    6,
+                    0,
+                    6
+                ],
+                "text-field": "{state_route}",
+                "text-font": [
+                    "Droid Sans Bold"
+                ],
+                "text-size": 11,
+                "text-rotation-alignment": "viewport",
+                "icon-rotation-alignment": "viewport",
+                "symbol-placement": "line",
+                "symbol-spacing": 500
+            },
+            "paint": {
+            }
+        },
+        {
+            "id": "US-Highway-Shields",
+            "source-layer": "Transportation - Road(NTDNOFS)",
+            "source": "The-National-Map",
+            "minzoom": 13,
+            "type": "symbol",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "tnmfrc",
+                    "2"
+                ],
+                [
+                    "has",
+                    "us_route"
+                ]
+            ],
+            "layout": {
+                "icon-image": "us-route-20",
+                "icon-text-fit": "width",
+                "icon-text-fit-padding": [
+                    0,
+                    6,
+                    0,
+                    6
+                ],
+                "text-field": "{us_route}",
+                "text-font": [
+                    "Droid Sans Bold"
+                ],
+                "text-size": 11,
+                "text-rotation-alignment": "viewport",
+                "icon-rotation-alignment": "viewport",
+                "symbol-placement": "line",
+                "symbol-spacing": 500
+            },
+            "paint": {
+            }
+        },
+        {
+            "id": "Interstate-Shields",
+            "source-layer": "Transportation - Road(NTDNOFS)",
+            "source": "The-National-Map",
+            "minzoom": 13,
+            "type": "symbol",
+            "filter": [
+                "all",
+                [
+                    "==",
+                    "tnmfrc",
+                    "1"
+                ],
+                [
+                    "has",
+                    "interstate"
+                ]
+            ],
+            "layout": {
+                "icon-image": "interstate-20",
+                "icon-text-fit": "width",
+                "icon-rotation-alignment": "viewport",
+                "icon-text-fit-padding": [
+                    0,
+                    6,
+                    0,
+                    6
+                ],
+                "text-field": "{interstate}",
+                "text-font": [
+                    "Droid Sans Bold"
+                ],
+                "text-size": 11,
+                "symbol-placement": "line",
+                "symbol-spacing": 500,
+                "text-rotation-alignment": "viewport"
+            },
+            "paint": {
+                "text-color": "#ffffff"
+            }
+        },
+        {
+            "id": "Miscellaneous-Place-Names",
+            "source-layer": "Derived Names",
+            "source": "The-National-Map",
+            "type": "symbol",
+            "filter": [
+                "in",
+                "gaz_feature",
+                "Gap",
+                "Falls",
+                "Ridge",
+                "Summit",
+                "Valley",
+                "Dam",
+                "Bend",
+                "Island",
+                "Gut",
+                "Bar",
+                "Cape",
+                "Swamp"
+            ],
+            "layout": {
+                "text-font": [
+                    "Droid Serif Italic"
+                ],
+                "text-field": "{gaz_name}",
+                "text-max-width": 6,
+                "text-padding": 2,
+                "text-offset": [
+                    0,
+                    0.6
+                ],
+                "text-anchor": "center",
+                "text-size": 10
+            }
+        },
+        {
+            "id": "Cemetery-Point",
+            "source-layer": "Structure - Point",
+            "source": "The-National-Map",
+            "type": "symbol",
+            "minzoom": 13,
+            "filter": [
+                "==",
+                "fcode",
+                82010
+            ],
+            "layout": {
+                "icon-image": "cemetery-20"
+            }
+        },
+        {
+            "id": "Airport-Point",
+            "source-layer": "Airport Point",
+            "source": "The-National-Map",
+            "type": "symbol",
+            "filter": [
+                "==",
+                "fcode",
+                20000
+            ],
+            "layout": {
+                "text-font": [
+                    "Droid Sans"
+                ],
+                "text-field": "{name}",
+                "text-max-width": 6,
+                "text-padding": 1,
+                "text-anchor": "top",
+                "text-justify": "center",
+                "text-size": 10,
+                "text-allow-overlap": true,
+                "text-offset": [
+                    0,
+                    2
+                ]
+            },
+            "paint": {
+                "text-color": "#000000",
+                "text-halo-color": "#ffffff",
+                "text-halo-width": 3
+            }
+        },
+        {
+            "id": "Airport-Runway",
+            "source-layer": "Airport Runway",
+            "source": "The-National-Map",
+            "type": "line",
+            "filter": [
+                "==",
+                "fcode",
+                20100
+            ],
+            "layout": {
+                "line-cap": "square",
+                "line-join": "bevel"
+            },
+            "paint": {
+                "line-opacity": 1.0,
+                "line-color": "#000000",
+                "line-width": {
+                    "base": 1.25,
+                    "stops": [
+                        [
+                            12,
+                            0.5
+                        ],
+                        [
+                            17,
+                            1.25
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "id": "Fire-Department",
+            "source-layer": "Structure - Point",
+            "source": "The-National-Map",
+            "type": "symbol",
+            "filter": [
+                "==",
+                "fcode",
+                74026
+            ],
+            "layout": {
+                "icon-image": "fire-20",
+                "icon-size": 0.4
+            }
+        },
+        {
+            "id": "Police",
+            "source-layer": "Structure - Point",
+            "source": "The-National-Map",
+            "type": "symbol",
+            "filter": [
+                "==",
+                "fcode",
+                74034
+            ],
+            "layout": {
+                "icon-image": "police-20",
+                "icon-size": 0.4
+            }
+        },
+        {
+            "id": "Hospital",
+            "source-layer": "Structure - Point",
+            "source": "The-National-Map",
+            "type": "symbol",
+            "filter": [
+                "==",
+                "ftype",
+                800
+            ],
+            "layout": {
+                "icon-image": "hospital-20",
+                "icon-size": 0.4
+            }
+        },
+        {
+            "id": "School",
+            "source-layer": "Structure - Point",
+            "source": "The-National-Map",
+            "type": "symbol",
+            "filter": [
+                "==",
+                "ftype",
+                730
+            ],
+            "layout": {
+                "icon-image": "school-20",
+                "icon-size": 0.6
+            }
+        },
+        {
+            "id": "Post-Office",
+            "source-layer": "Structure - Point",
+            "source": "The-National-Map",
+            "type": "symbol",
+            "filter": [
+                "==",
+                "ftype",
+                780
+            ],
+            "layout": {
+                "icon-image": "postal-20",
+                "icon-size": 0.5
+            }
+        },
+        {
+            "id": "Cemetery-Name",
+            "source-layer": "Derived Names",
+            "source": "The-National-Map",
+            "type": "symbol",
+            "minzoom": 13,
+            "filter": [
+                "==",
+                "fcode",
+                82010
+            ],
+            "layout": {
+                "icon-image": "cemetery-20",
+                "text-font": [
+                    "Droid Sans"
+                ],
+                "text-field": "{gaz_name}",
+                "text-max-width": 6,
+                "text-padding": 1,
+                "text-anchor": "bottom-left",
+                "text-offset": [
+                    1,
+                    1
+                ],
+                "text-size": 10,
+                "text-allow-overlap": true
+            },
+            "paint": {
+                "text-color": "#000000",
+                "text-halo-color": "#ffffff",
+                "text-halo-width": 3
+            }
+        }
+
+    ]
+}
