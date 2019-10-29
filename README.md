@@ -22,6 +22,6 @@ The Classic style attempts to reproduce the styles associated with traditional U
 
 ### Terrain
 
-The Terrain style adds a shaded relief layer consisting of raster tiles to classic style. The contour layers can be removed if a "pure" shaded relief map is desired.
+The Terrain style adds a shaded relief layer consisting of raster tiles to the classic style. The contour layers can be removed if a "pure" shaded relief map is desired.
 
 For both JSON styles, the source, glyphs, and sprite entries will require editing to reflect your actual situation.
