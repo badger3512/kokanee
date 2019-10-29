@@ -1,0 +1,169 @@
+{
+   "airport-40": {
+      "width": 40,
+      "height": 33,
+      "x": 0,
+      "y": 0,
+      "pixelRatio": 1
+   },
+   "campground-40": {
+      "width": 40,
+      "height": 37,
+      "x": 40,
+      "y": 0,
+      "pixelRatio": 1
+   },
+   "cemetery-40": {
+      "width": 40,
+      "height": 40,
+      "x": 80,
+      "y": 0,
+      "pixelRatio": 1
+   },
+   "dam-weir-40": {
+      "width": 40,
+      "height": 40,
+      "x": 120,
+      "y": 0,
+      "pixelRatio": 1
+   },
+   "dots-40": {
+      "width": 64,
+      "height": 64,
+      "x": 160,
+      "y": 0,
+      "pixelRatio": 1
+   },
+   "fire-40": {
+      "width": 40,
+      "height": 40,
+      "x": 224,
+      "y": 0,
+      "pixelRatio": 1
+   },
+   "gate-40": {
+      "width": 39,
+      "height": 40,
+      "x": 264,
+      "y": 0,
+      "pixelRatio": 1
+   },
+   "hospital-40": {
+      "width": 40,
+      "height": 40,
+      "x": 303,
+      "y": 0,
+      "pixelRatio": 1
+   },
+   "interstate-40": {
+      "width": 40,
+      "height": 38,
+      "x": 343,
+      "y": 0,
+      "pixelRatio": 1
+   },
+   "lock-chamber-40": {
+      "width": 40,
+      "height": 40,
+      "x": 383,
+      "y": 0,
+      "pixelRatio": 1
+   },
+   "marsh-40": {
+      "width": 32,
+      "height": 32,
+      "x": 423,
+      "y": 0,
+      "pixelRatio": 1
+   },
+   "police-40": {
+      "width": 40,
+      "height": 40,
+      "x": 455,
+      "y": 0,
+      "pixelRatio": 1
+   },
+   "postal-40": {
+      "width": 40,
+      "height": 21,
+      "x": 495,
+      "y": 0,
+      "pixelRatio": 1
+   },
+   "rapids-40": {
+      "width": 32,
+      "height": 32,
+      "x": 535,
+      "y": 0,
+      "pixelRatio": 1
+   },
+   "reservoir-40": {
+      "width": 39,
+      "height": 40,
+      "x": 567,
+      "y": 0,
+      "pixelRatio": 1
+   },
+   "rock-40": {
+      "width": 40,
+      "height": 38,
+      "x": 606,
+      "y": 0,
+      "pixelRatio": 1
+   },
+   "school-40": {
+      "width": 40,
+      "height": 40,
+      "x": 646,
+      "y": 0,
+      "pixelRatio": 1
+   },
+   "spring-seep-40": {
+      "width": 40,
+      "height": 40,
+      "x": 686,
+      "y": 0,
+      "pixelRatio": 1
+   },
+   "state-highway-40": {
+      "width": 40,
+      "height": 40,
+      "x": 726,
+      "y": 0,
+      "pixelRatio": 1
+   },
+   "stream-gage-40": {
+      "width": 39,
+      "height": 40,
+      "x": 766,
+      "y": 0,
+      "pixelRatio": 1
+   },
+   "us-route-40": {
+      "width": 40,
+      "height": 39,
+      "x": 805,
+      "y": 0,
+      "pixelRatio": 1
+   },
+   "well-40": {
+      "width": 40,
+      "height": 40,
+      "x": 845,
+      "y": 0,
+      "pixelRatio": 1
+   },
+   "dot-40": {
+      "width": 8,
+      "height": 8,
+      "x": 885,
+      "y": 0,
+      "pixelRatio": 1
+   },
+   "line-fill-40": {
+      "width": 32,
+      "height": 32,
+      "x": 893,
+      "y": 0,
+      "pixelRatio": 1
+   }}
