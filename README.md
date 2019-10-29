@@ -4,7 +4,7 @@
 
 The styles are in two different formats, each of which are specific to the layer names associated with the different files included in the USGS data.
 
-## SLD/SE file
+## SLD/SE Files
 
 SLD/SE files are XML files containing the Open Geospatial Consortium (OGC) specified style information. While the files are in the Geoserver/Geotools dialect, it should be possible to import these styles into other OGC-compliant tools such as QGIS or ESRI ArcGIS.
 
@@ -22,6 +22,6 @@ The Classic style attempts to reproduce the styles associated with traditional U
 
 ### Terrain
 
-The Terrain style assumes a shaded relief layer consisting of raster tiles. It includes standard contour layers, as well. The contour layers can be removed if a "pure" shaded relief map is desired.
+The Terrain style adds a shaded relief layer consisting of raster tiles to classic style. The contour layers can be removed if a "pure" shaded relief map is desired.
 
 For both JSON styles, the source, glyphs, and sprite entries will require editing to reflect your actual situation.
