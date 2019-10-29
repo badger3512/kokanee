@@ -12,15 +12,16 @@ A good reference for SLD/SE is the [Geoserver SLD Cookbook](https://docs.geoserv
 
 ## Mapbox Style JSON
 
-These files are based on the [Mapbox Style Specification](https://docs.mapbox.com/mapbox-gl-js/style-spec). The styles are useful for building web apps that are based on the Mapbox GL JS Javascript API. The styles may also be imported into Mapbox Studio for working there.
+These files are based on the [Mapbox Style Specification](https://docs.mapbox.com/mapbox-gl-js/style-spec). The styles are useful for building web apps that are based on the Mapbox GL JS Javascript API. The styles may also be imported into Mapbox Studio for working there. Mapbox style objects may be used in OpenLayers by using the [ol-mapbox-style](https://github.com/openlayers/ol-mapbox-style) library.
 
 There are two JSON styles:
 
 ### Classic
 
-The Classic style attempts to reproduce the styles associated with traditional US TOPO quadrangle maps.
+The Classic style attempts to reproduce the styles associated with traditional US TOPO quadrangle maps. It assumes standard contours layers.
 
 ### Terrain
 
-The Terrain style 
+The Terrain style assumes a shaded relief layer consisting of raster tiles. It includes standard contour layers, as well. The contour layers can be removed if a "pure" shaded relief map is desired.
 
+For both JSON styles, the source, glyphs, and sprite entries will require editing to reflect your actual situation.
