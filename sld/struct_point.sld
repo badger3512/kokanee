@@ -131,7 +131,7 @@
                             <se:ExternalGraphic>
                                 <se:OnlineResource
                                     xlink:type="simple"
-                                    xlink:href="http://www.redfishresearch.com/sld/images/svg/stream_gage.svg"/>
+                                    xlink:href="http://www.redfishresearch.com/sld/images/svg/cemetery.svg"/>
                                 <se:Format>image/svg+xml</se:Format>
                             </se:ExternalGraphic>
                             <se:Size>8</se:Size>
