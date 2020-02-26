@@ -59,6 +59,7 @@
                             <se:Radius>2</se:Radius>
                             <se:Fill>
                                 <se:SvgParameter name="fill">#CCCCCC</se:SvgParameter>
+                                <se:SvgParameter name="fill-opacity">0.5</se:SvgParameter>
                             </se:Fill>
                         </se:Halo>
                         <se:Fill>
@@ -98,6 +99,34 @@
                         <se:Stroke>
                             <se:SvgParameter name="stroke">#ECBBBB</se:SvgParameter>
                             <se:SvgParameter name="stroke-width">3</se:SvgParameter>
+                        </se:Stroke>
+                        <se:PerpendicularOffset>-2</se:PerpendicularOffset>
+                    </se:LineSymbolizer>
+                    <se:LineSymbolizer>
+                        <se:Stroke>
+                            <se:SvgParameter name="stroke">#000000</se:SvgParameter>
+                            <se:SvgParameter name="stroke-width">1.0</se:SvgParameter>
+                            <se:SvgParameter name="stroke-linejoin">bevel</se:SvgParameter>
+                            <se:SvgParameter name="stroke-linecap">butt</se:SvgParameter>
+                            <se:SvgParameter name="stroke-dasharray">25 3 5 3</se:SvgParameter>
+                        </se:Stroke>
+                    </se:LineSymbolizer>
+                </se:Rule>
+                <se:Rule>
+                    <se:Name>Wilderness</se:Name>
+                    <ogc:Filter>
+                        <ogc:PropertyIsEqualTo>
+                            <ogc:Function name="parseInt">
+                                <ogc:PropertyName>ftype</ogc:PropertyName>
+                            </ogc:Function>
+                            <ogc:Literal>675</ogc:Literal>
+                        </ogc:PropertyIsEqualTo>
+                    </ogc:Filter>
+                    <se:LineSymbolizer>
+                        <se:Stroke>
+                            <se:SvgParameter name="stroke">#80CD32</se:SvgParameter>
+                            <se:SvgParameter name="stroke-width">3</se:SvgParameter>
+                            <se:SvgParameter name="stroke-opacity">0.5</se:SvgParameter>
                         </se:Stroke>
                         <se:PerpendicularOffset>-2</se:PerpendicularOffset>
                     </se:LineSymbolizer>
